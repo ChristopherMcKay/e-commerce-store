@@ -1,0 +1,26 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Products</h1>
+  <p class="lead">Check out this list of products. I know they are completely random and nonsensical, but who cares? It's not like this page is going to end up in my portfolio or anything. Hell, I can write some extremely fucking vulgar shit in here and it won't matter.  </p>
+</div>
+
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+
+    <% for (let i = 0; i < products.length; i++) { %>
+
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal"> <%= products[i].name %> </h4>
+        </div>
+        <div class="card-body">
+          <img class="card-img-top" src="<%= products[i].image %>" alt="Card image cap" style="width: 180px">
+          <ul class="list-unstyled mt-3 mb-4">
+            <li> $<%= products[i].price %>.00 </li>
+          </ul>
+          <a href="/api/product/product-page?<%= products[i]._id %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">View now</button></a>
+        </div>
+      </div>
+
+      <% } %>
+
+</div>

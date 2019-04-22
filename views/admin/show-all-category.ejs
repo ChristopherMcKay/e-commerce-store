@@ -1,0 +1,26 @@
+
+
+
+<!doctype html>
+<html lang="en">
+
+  <% include ../partials/head %>
+
+  <body>
+    <% include ../partials/nav %>
+
+    
+
+    <ul class="list-group">
+        <li class="list-group-item disabled">Categories</li>
+
+        <% for (let i = 0; i < categories.length; i++) {%>
+            <li class="list-group-item"><%= categories[i] %></li>
+        <% } %>
+
+    </ul>
+
+
+
+  </body>
+</html>
