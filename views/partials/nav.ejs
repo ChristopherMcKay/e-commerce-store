@@ -44,13 +44,12 @@
              <a class="nav-link" href="/api/users/update-profile">loggedIn as <%= user.email %></a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="/api/cart">
-                   <i class="fas fa-shopping-cart"></i>
-                   <% if (cartItems) { %>
-                    <%= cartItems.length %>
-                   <% } %> 
-               </a>
-             </li>
+              <a class="nav-link" href="/api/cart">
+              <span class="fa-stack  has-badge" data-count="<%= cartItems[0].total %>">
+                  <i class="fas fa-shopping-cart fa-stack"></i>
+              </span>
+              </a>
+            </li>
            <li class="nav-item">
              <a class="nav-link" href="/api/users/logout">Logout</a>
            </li>

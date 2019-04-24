@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const gravatar = require('../utils/gravatar');
+const Cart = require('../../cart/models/Cart')
 
 
 module.exports = {
@@ -38,7 +39,23 @@ module.exports = {
 
                                     newUser
                                         .save()
-                                        .then( user => resolve(user))
+                                        .then( user => {
+                                            
+                                            let cart = new Cart();
+
+                                            cart.owner = user._id;
+                                            
+                                            cart.save( function(err) {
+                                                if (err) {
+                                                    reject(err);
+                                                }
+                                                else {
+                                                    resolve(user);
+                                                }
+                                            })
+
+                                            resolve(user)
+                                        })
                                         .catch(err => reject(err));
                                 }
 

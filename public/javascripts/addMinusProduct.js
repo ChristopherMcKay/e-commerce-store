@@ -7,9 +7,10 @@ $("#plus").click( function(e) {
 
     price += parseFloat($('#priceHidden').val());
     total++
-    
+
     $('#total').html(total)
     $('#priceValue').val(price.toFixed(2));
+    $('#quantity').attr('value', `${total}`)
 
 })
 
@@ -27,5 +28,6 @@ $("#minus").click( function(e) {
 
     $('#total').html(total);
     $('#priceValue').val(price.toFixed(2));
+    $('#quantity').attr('value', `${total}`)
 })
 
