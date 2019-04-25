@@ -89,14 +89,18 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
-  Cart.find({ owner: req.user._id })
-          .then( cartItems => {
-            res.locals.cartItems = cartItems;
-            next();
-          })
-          .catch( error => {
-            return next(error);
-          })
+
+  let params = req.user ? {owner: req.user._id} : {total: -1}
+
+    Cart.find(params  )
+            .then( cartItems => {
+              res.locals.cartItems = cartItems;
+              next();
+            })
+            .catch( error => {
+              return next(error);
+            })
+
 });
 
 app.use(expressValidator({
