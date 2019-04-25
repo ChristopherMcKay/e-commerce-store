@@ -6,6 +6,8 @@
 <div class="container">
   <div class="card-deck mb-3 text-center">
 
+  <% if (products) { %>
+
     <% for (let i = 0; i < products.length; i++) { %>
 
       <div class="card mb-4 shadow-sm">
@@ -20,6 +22,8 @@
           <a href="/api/product/product-page?<%= products[i]._id %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">View now</button></a>
         </div>
       </div>
+
+      <% } %>
 
       <% } %>
 

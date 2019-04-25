@@ -25,22 +25,27 @@
 
   <div class="card-deck mb-3 text-center" id="productSearchResults">
 
-    <% for (let i = 0; i < products.length; i++) { %>
+  <% if (products) { %>
 
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal"> <%= products[i].name %> </h4>
+      <% for (let i = 0; i < products.length; i++) { %>
+
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal"> <%= products[i].name %> </h4>
+          </div>
+          <div class="card-body">
+            <img class="card-img-top" src="<%= products[i].image %>" alt="Card image cap" style="width: 180px">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li> $<%= products[i].price %>.00 </li>
+            </ul>
+            <a href="/api/product/product-page?<%= products[i]._id %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">View now</button></a>
+          </div>
         </div>
-        <div class="card-body">
-          <img class="card-img-top" src="<%= products[i].image %>" alt="Card image cap" style="width: 180px">
-          <ul class="list-unstyled mt-3 mb-4">
-            <li> $<%= products[i].price %>.00 </li>
-          </ul>
-          <a href="/api/product/product-page?<%= products[i]._id %>"><button type="button" class="btn btn-lg btn-block btn-outline-primary">View now</button></a>
-        </div>
-      </div>
+
+        <% } %>
 
       <% } %>
+
 
       </div>
 

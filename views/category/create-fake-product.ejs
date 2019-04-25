@@ -11,10 +11,12 @@
          </div>
      <% } %>
      <ul class="list-group">
+      <% if (categories) { %>
        <% for(let i = 0; i < categories.length; i++) { %>
          <li class="list-group-item">
            <a href="/api/admin/create-fake-product?<%= categories[i]._id %>" > <%= categories[i].name %> </a>
          </li>
+         <% } %>
          <% } %>
      </ul>
  </body>

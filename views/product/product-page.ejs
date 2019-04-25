@@ -5,6 +5,7 @@
 
    <% include ../partials/nav %>
 
+	<% if (product) { %>
    <div class="row" style="margin-top: 5%">
        <div class="col">
          <img style="height: 400px; width: 600px" src="<%= product.image %>" />
@@ -27,7 +28,9 @@
 
                <input type="text" name="item" class="form-control" value="<%= product.name %>">
                <input type="text" name="priceValue" id="priceValue" class="form-control" value="<%= product.price %>">
-             </div>
+						 </div>
+						 
+						 <% } %>
 
              <% if (user)  { %>
                <button type="submit" class="btn btn-primary btn-lg">Add to Cart</button>

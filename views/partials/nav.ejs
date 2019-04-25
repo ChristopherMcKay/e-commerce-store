@@ -16,10 +16,12 @@
      <li class="nav-item dropdown">
        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
        <div class="dropdown-menu" aria-lebelledby="navbarDropdown">
+       <% if (categories) { %>
         <% for (let i = 0; i < categories.length; i++) { %>
 
           <a class="dropdown-item" href="/api/product/products-by-category/<%= categories[i]._id %>"> <%= categories[i].name %> </a>
 
+        <% } %>
         <% } %>
        </div>
      </li>
@@ -43,6 +45,7 @@
            <li class="nav-item">
              <a class="nav-link" href="/api/users/update-profile">loggedIn as <%= user.email %></a>
            </li>
+           <% if (cartItems) { %>
            <li class="nav-item">
               <a class="nav-link" href="/api/cart">
               <span class="fa-stack  has-badge" data-count="<%= cartItems[0].total %>">
@@ -53,6 +56,8 @@
            <li class="nav-item">
              <a class="nav-link" href="/api/users/logout">Logout</a>
            </li>
+         <% } %>
+
        <% } %>
      </ul>
  </div>
