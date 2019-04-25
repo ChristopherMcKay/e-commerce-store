@@ -16,6 +16,7 @@ var categoryValidation = require('./utils/categoryValidation');
 
 
 router.get('/', function(req, res, next) {
+    res.send('HEHE')
     res.render('index');
 });
 
