@@ -129,6 +129,21 @@ module.exports = {
 
 
 
+    },
+
+    getProfileWithHistory: (id) => {
+        return new Promise((resolve, reject) => {
+            User.findOne({_id: id})
+                .populate('history.item')
+                .exec(function(err, user) {
+                    if (err) {
+                        reject(err)
+                    }
+                    else {
+                        resolve(user)
+                    }
+                });
+        });
     }
 
 

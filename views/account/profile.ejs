@@ -32,6 +32,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Edit Profile</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#history   " role="tab" aria-controls="profile" aria-selected="false">History</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -88,12 +91,21 @@
                                                 <p>Clothes and Whatever</p>
                                             </div>
                                         </div>
+
+                                    
                             
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                       
                                       
                                 <% include ./edit-profile %>
+                                      
+                              
+                            </div>
+                            <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+                                      
+                                      
+                                <% include ./history %>
                                       
                               
                             </div>

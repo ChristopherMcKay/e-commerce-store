@@ -10,6 +10,12 @@ var UserSchema = new mongoose.Schema({
         picture: { type: String, default: ''}
     },
     address: { type: String, default: ''},
+    history: [
+        {
+            paid: { type: Number, default: 0 },
+            item: { type: mongoose.Schema.Types.ObjectId, ref: 'product' }
+        }
+    ],
     timestamp: { type: String, default: () => moment().format('dddd, MMMM Do YYYY, h:mm:ss a')}
 
 })

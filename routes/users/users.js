@@ -83,10 +83,20 @@ router.get('/logout', function(req, res) {
 
 router.get('/update-profile', function(req, res, next) {
 
-  res.render('account/profile', { 
-                                  errors: req.flash('errors'), 
-                                  success: req.flash('success')
-                                })
+  userController.getProfileWithHistory(req.user.id)
+                .then( foundUser => {
+                  res.render('./account/profile', {errors: req.flash('errors'), 
+                                                  success: req.flash('success'),
+                                                  user: foundUser})
+                })
+                .catch( error => {
+
+                })
+
+  // res.render('account/profile', { 
+  //                                 errors: req.flash('errors'), 
+  //                                 success: req.flash('success')
+  //                               })
 
 })
 
